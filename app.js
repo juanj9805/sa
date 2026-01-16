@@ -17,10 +17,10 @@ buttonSubmit.addEventListener("click", (e) => {
     const html = `
             <tr class="hi" >
                 <td id="id">${userInfo.id}</td>
-                <td>${userInfo.name}</td>
-                <td>${userInfo.lastName}</td>
+                <td class="name" >${userInfo.name}</td>
+                <td class="lastname" >${userInfo.lastName}</td>
                 <td>
-                    <button type="button" class="btn btn-outline-success" >Create</button>
+                    <button type="button" class="btn btn-outline-success" >Update</button>
                     <button type="button" class="btn btn-outline-primary" >Info</button>
                     <button id="delete" type="button" class="btn btn-outline-danger" >Delete</button>
                 </td>
@@ -51,13 +51,10 @@ buttonSubmit.addEventListener("click", (e) => {
       icon: "error",
     });
   }
-  console.log(users);
 });
 
 
 tableContent.addEventListener("click", (e) => {
-  console.log(e);
-  
   if (e.target.classList.contains("btn-outline-danger")) {
     console.log(e.target);
   
@@ -66,10 +63,21 @@ tableContent.addEventListener("click", (e) => {
 });
 
 tableContent.addEventListener("click", (e) => {
-  
   if (e.target.classList.contains("btn-outline-primary")) {
-    alert("hi")
+   console.log(users[0].id);
+    
   }
 });
 
-form.addEventListener("click" )
+tableContent.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-outline-success")) {
+    alert("er")
+    const row = e.target.closest("tr")
+    const name = row.querySelector(".name").textContent
+    const lastName = row.querySelector(".lastname").textContent
+    
+
+    console.log(name, lastName);
+    
+  }
+});

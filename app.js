@@ -1,5 +1,6 @@
 const buttonSubmit = document.querySelector("#submit_send");
 const tableContent = document.querySelector("#tableBodyContent");
+const form = document.querySelector("#form");
 const users = [];
 
 buttonSubmit.addEventListener("click", (e) => {
@@ -13,7 +14,6 @@ buttonSubmit.addEventListener("click", (e) => {
       name: inputName.value.toUpperCase(),
       lastName: inputLastName.value.toUpperCase(),
     };
-
     const html = `
             <tr class="hi" >
                 <td id="id">${userInfo.id}</td>
@@ -38,6 +38,8 @@ buttonSubmit.addEventListener("click", (e) => {
     users.push(userInfo);
     tableContent.insertAdjacentHTML("beforeend", html);
     inputName.textContent = "";
+    inputName.value = ""
+    inputLastName.value = ""
   } else {
     inputName.classList.add("is-invalid");
     inputName.classList.remove("is-valid");
@@ -52,8 +54,22 @@ buttonSubmit.addEventListener("click", (e) => {
   console.log(users);
 });
 
+
 tableContent.addEventListener("click", (e) => {
+  console.log(e);
+  
   if (e.target.classList.contains("btn-outline-danger")) {
+    console.log(e.target);
+  
     e.target.closest("tr").remove();
   }
 });
+
+tableContent.addEventListener("click", (e) => {
+  
+  if (e.target.classList.contains("btn-outline-primary")) {
+    alert("hi")
+  }
+});
+
+form.addEventListener("click" )
